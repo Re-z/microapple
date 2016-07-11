@@ -1,0 +1,183 @@
+mixin liArrowRight(text, subnestedText1, subnestedText2, subnestedText3, subntestedText4, subntestedText5)
+	li.ms__nested-item.has-dropdown-right
+		a.ms__nested-link(href="javascript: void(0)" title="")=text
+		ul.ms__subnested
+			li.ms__subnested-item: a.ms__subnested-link(href="#" title="")=subnestedText1
+			li.ms__subnested-item: a.ms__subnested-link(href="#" title="")=subnestedText2
+			li.ms__subnested-item: a.ms__subnested-link(href="#" title="")=subnestedText3
+			li.ms__subnested-item: a.ms__subnested-link(href="#" title="")=subntestedText4
+			li.ms__subnested-item: a.ms__subnested-link(href="#" title="")=subntestedText5
+
+
+mixin liArrowNone(text)
+	li.ms__nested-item
+		a.ms__nested-link(href="#" title="")=text
+
+extends _layout
+
+block title
+	title by Anton Bilichenko
+
+block content
+	header.ms
+		.ms__inner
+			.ms__left-side
+				a.ms__logo(href="https://www.microsoft.com/uk-ua/" title="" )
+				//start nav
+				nav.ms__nav
+					ul
+						li.ms__nav-item
+							a.ms__nav-link.has-dropdown-down(href="javascript: void(0)" title="") Store
+							ul.ms__nested
+								+liArrowRight('Store home', 'Windows Phone', 'Microsoft Band', 'Accessories', 'Windows', 'Additional software')
+								+liArrowNone('Software')
+								+liArrowNone('Apps')
+								+liArrowNone('Games')
+								+liArrowNone('Entertainment')
+								+liArrowNone('Business & student')
+								+liArrowNone('Sydney store')
+								+liArrowNone('Sale')
+
+						li.ms__nav-item
+							a.ms__nav-link.has-dropdown-down(href="javascript: void(0)" title="") Products
+							ul.ms__nested
+								+liArrowRight('Software & services', 'Windows', 'Office', 'Internet Explorer', 'Microsoft Edge', 'Skype')
+								+liArrowNone('Devices & Xbox')
+								+liArrowNone('For business')
+								+liArrowNone('For developers & IT pros')
+								+liArrowNone('For students & educators')
+
+						li.ms__nav-item
+							a.ms__nav-link(href="#" title="" ) Support
+				//end nav
+
+			.ms__right-side
+				.ms__input-wrap
+					input.ms__search-query(type="text" placeholder="Search Microsoft.com")
+					.ms__search-wrap
+						input.ms__search-submit(type="submit" value="")
+				a.ms__cart(href="#" title="" ) 0
+				a.ms__log-in(href="#" title=""  ) Sign in
+	section.dropbox
+		.dropbox__inner
+			.dropbox__container
+				h1.dropbox__title Collaborate faster and more securely
+				h2.dropbox__subtitle Boost business productivity with the ultimate file saving and sharing tool that employees love and IT admins trust.
+				.dropbox__btn-wrap
+					button.dropbox__btn Try free for 30 days
+				span.dropbox__text or #[a.dropbox__link(href="#" title="") purchase now]
+
+	section.invis
+		.invis__inner
+			h3.invis__title Join over 2 million designers already using InVision. Get InVision <strong>free</strong> forever!
+			form.invis__form
+				.invis__input-wrap.invis__name
+					input.invis__input(type="text" placeholder="Your name")
+				.invis__input-wrap.invis__email
+					input.invis__input(type="email" placeholder="Email address")
+				.invis__input-wrap.invis__pass
+					input.invis__input(type="password" placeholder="Create a password")
+				input.invis__submit(type="submit" value="Get Started — Free Forever!")
+			p.invis__text By clicking "Get Started — Free Forever!" I agree to InVision's #[a.invis__link(href="#" title="") Terms of Service].
+	section.oculus
+
+		mixin oculusItem(title, subtitle, imgClass)
+			a.oculus__item(href="#")
+				.oculus__title-box
+					h5.oculus__title=title
+					h6.oculus__subtitle=subtitle
+				.oculus__img(class='oculus__img_#{imgClass}')
+				.oculus__color
+
+		+oculusItem('FEATURED CONTENT', 'EVE: Valkyrie', 'eve')
+		+oculusItem('INCLUDED WITH ALL RIFT PURCHASES', 'Lucky`s Tale', 'lucky')
+		+oculusItem('FEATURED STORY', 'Over 30 Full Games Launching with Oculus Touch this Year', 'games')
+
+	footer.apple
+		.apple__inner
+			.apple__links-wrap
+				.apple__col
+					.apple__list-wrap
+						h6.apple__title Shop and Learn
+						ul.apple__list
+							- var appleList1 = ['Mac', 'iPad', 'iPhone', 'Watch', 'TV', 'Music', 'iTunes', 'iPod', 'Accessories', 'Gift Cards']
+							each item in appleList1
+								li: a(href="#" title=item)=item
+				.apple__col
+					.apple__list-wrap
+						h6.apple__title Shop and Learn
+						ul.apple__list
+							- var appleList2 = ['Find a Store', 'Genius Bar', 'Workshops and Learning', 'Youth Programs', 'Apple Store App', 'Refurbished', 'Financing', 'Reuse and Recycling', 'Order Status', 'Shopping Help']
+							each item in appleList2
+								li: a(href="#" title=item)=item
+
+				.apple__col
+					.apple__list-wrap
+						h6.apple__title For Education
+						ul.apple__list
+							li: a(href="#" title='Apple and Education') Apple and Education
+							li: a(href="#" title='Shop for College') Shop for College
+					.apple__list-wrap
+						h6.apple__title For Business
+						ul.apple__list
+							li: a(href="#" title='Apple and Business') Apple and Business
+							li: a(href="#" title='Shop for Business') Shop for Business
+
+				.apple__col
+					.apple__list-wrap
+						h6.apple__title Account
+						ul.apple__list
+							- var appleList3 = ['Manage Your Apple ID', 'Apple Store Account', 'iCloud.com']
+							each item in appleList3
+								li: a(href="#" title=item)=item
+					.apple__list-wrap
+						h6.apple__title Apple Values
+						ul.apple__list
+							- var appleList3 = ['Environment', 'Supplier Responsibility', 'Accessibility', 'Privacy' ,'Inclusion and Diversity', 'Education	']
+							each item in appleList3
+								li: a(href="#" title=item)=item
+				.apple__col
+					.apple__list-wrap
+						h6.apple__title Account
+						ul.apple__list
+							- var appleList4 = ['About Apple', 'Apple Info', 'Newsroom', 'Job Opportunities', 'Investors', 'Events', 'Contact Apple']
+							each item in appleList4
+								li: a(href="#" title=item)=item
+
+
+			p.apple__shop More ways to shop: Visit an #[a(href="#") Apple Store], call 1-800-MY-APPLE, or #[a(href="#") find a reseller].
+			.apple__subfooter
+				p.apple__copy Copyright © 2016 Apple Inc. All rights reserved.
+				ul.apple__nav
+					- var appleNav = ['Privacy Policy', 'Terms of Use', 'Sales and Refunds', 'Legal', 'Site Map']
+					each item in appleNav
+						li: a.apple__nav-link(href="#" title=item)=item
+
+				a.apple__lang(href="#") United States
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
