@@ -1,34 +1,35 @@
-mixin liArrowRight(text, subnestedText1, subnestedText2, subnestedText3, subntestedText4, subntestedText5)
-	li.ms__nested-item.has-dropdown-right
-		a.ms__nested-link(href="javascript: void(0)" title="")=text
-		ul.ms__subnested
-			li.ms__subnested-item: a.ms__subnested-link(href="#" title="")=subnestedText1
-			li.ms__subnested-item: a.ms__subnested-link(href="#" title="")=subnestedText2
-			li.ms__subnested-item: a.ms__subnested-link(href="#" title="")=subnestedText3
-			li.ms__subnested-item: a.ms__subnested-link(href="#" title="")=subntestedText4
-			li.ms__subnested-item: a.ms__subnested-link(href="#" title="")=subntestedText5
-
-
-mixin liArrowNone(text)
-	li.ms__nested-item
-		a.ms__nested-link(href="#" title="")=text
-
 extends _layout
 
 block title
 	title by Anton Bilichenko
 
 block content
+	//header
 	header.ms
 		.ms__inner
 			.ms__left-side
-				a.ms__logo(href="https://www.microsoft.com/uk-ua/" title="" )
+				a.ms__logo(href="#" title="" )
 				//start nav
 				nav.ms__nav
 					ul
 						li.ms__nav-item
 							a.ms__nav-link.has-dropdown-down(href="javascript: void(0)" title="") Store
 							ul.ms__nested
+
+								mixin liArrowRight(text, subnestedText1, subnestedText2, subnestedText3, subntestedText4, subntestedText5)
+									li.ms__nested-item.has-dropdown-right
+										a.ms__nested-link(href="javascript: void(0)" title="")=text
+										ul.ms__subnested
+											li.ms__subnested-item: a.ms__subnested-link(href="#" title="")=subnestedText1
+											li.ms__subnested-item: a.ms__subnested-link(href="#" title="")=subnestedText2
+											li.ms__subnested-item: a.ms__subnested-link(href="#" title="")=subnestedText3
+											li.ms__subnested-item: a.ms__subnested-link(href="#" title="")=subntestedText4
+											li.ms__subnested-item: a.ms__subnested-link(href="#" title="")=subntestedText5
+
+								mixin liArrowNone(text)
+									li.ms__nested-item
+										a.ms__nested-link(href="#" title="")=text
+
 								+liArrowRight('Store home', 'Windows Phone', 'Microsoft Band', 'Accessories', 'Windows', 'Additional software')
 								+liArrowNone('Software')
 								+liArrowNone('Apps')
@@ -49,6 +50,7 @@ block content
 
 						li.ms__nav-item
 							a.ms__nav-link(href="#" title="" ) Support
+
 				//end nav
 			.ms__right-side
 				.ms__input-wrap
@@ -57,6 +59,8 @@ block content
 						input.ms__search-submit(type="submit" value="")
 				a.ms__cart(href="#" title="" ) 0
 				a.ms__log-in(href="#" title=""  ) Sign in
+	//end header
+	//start dropbox
 	section.dropbox
 		.dropbox__inner
 			.dropbox__container
@@ -65,7 +69,7 @@ block content
 				.dropbox__btn-wrap
 					button.dropbox__btn Try free for 30 days
 				span.dropbox__text or #[a.dropbox__link(href="#" title="") purchase now]
-
+	//end dropbox
 	section.invis
 		.invis__inner
 			h3.invis__title Join over 2 million designers already using InVision. Get InVision <strong>free</strong> forever!
@@ -78,8 +82,8 @@ block content
 					input.invis__input(type="password" placeholder="Create a password")
 				input.invis__submit(type="submit" value="Get Started — Free Forever!")
 			p.invis__text By clicking "Get Started — Free Forever!" I agree to InVision's #[a.invis__link(href="#" title="") Terms of Service].
+	//start oculus
 	section.oculus
-
 		mixin oculusItem(title, subtitle, imgClass)
 			a.oculus__item(href="#")
 				.oculus__title-box
@@ -91,7 +95,8 @@ block content
 		+oculusItem('FEATURED CONTENT', 'EVE: Valkyrie', 'eve')
 		+oculusItem('INCLUDED WITH ALL RIFT PURCHASES', 'Lucky`s Tale', 'lucky')
 		+oculusItem('FEATURED STORY', 'Over 30 Full Games Launching with Oculus Touch this Year', 'games')
-
+	//end oculus
+	//start footer
 	footer.apple
 		.apple__inner
 			.apple__links-wrap
@@ -153,6 +158,7 @@ block content
 						li: a.apple__nav-link(href="#" title=item)=item
 
 				a.apple__lang(href="#") United States
+	//end footer
 
 
 
@@ -162,7 +168,7 @@ block content
 
 
 
-				
+
 
 
 

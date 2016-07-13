@@ -1,19 +1,23 @@
 $minWidth: 1600px
 $headerHeight: 48px
 $almostBlack: #2F2F2F
-
+$almostWhite: #f1f1f1
 =inner
 	margin: 0 auto
 	width: $minWidth
+
+a, button, input[type="submit"]
+	transition: 0.3s ease-in-out
+
 .ms
-	border-bottom: 1px solid #F1F1F1
+	border-bottom: 1px solid $almostWhite
+	min-width: $minWidth
 	&__inner
 		background: white
 		height: $headerHeight
 		+inner
 		+flex(space-between, center)
 		padding: 0 10px
-
 
 	&__left-side
 		+flex(center, center)
@@ -25,17 +29,18 @@ $almostBlack: #2F2F2F
 		width: 108px
 		height: $headerHeight
 		margin-right: 15px
+
 	&__nav
 		ul
 			font-size: 0
 	&__nav-item
-		color: #2F2F2F
+		color: $almostBlack
 		font-size: 15px
 		cursor: pointer
 		display: inline-block
 		position: relative
 		&.is-active
-			background: #F1F1F1
+			background: $almostWhite
 
 	&__nav-link
 		color: inherit
@@ -45,14 +50,15 @@ $almostBlack: #2F2F2F
 		padding: 0 20px
 		text-decoration: none
 		&:hover
-			background: #F1F1F1
+			background: $almostWhite
 
 	&__nested
 		position: absolute
-		background: #F1F1F1
+		background: $almostWhite
 		min-width: 238px
 		cursor: default
 		display: none
+
 	&__nested-item
 		display: block
 		position: relative
@@ -121,6 +127,7 @@ $almostBlack: #2F2F2F
 		width: 34px
 		height: 34px
 		background-color: transparent
+
 	&__cart
 		height: $headerHeight
 		line-height: $headerHeight
@@ -134,7 +141,7 @@ $almostBlack: #2F2F2F
 		padding: 0 5px 0 30px
 		margin-left: 15px
 		&:hover
-			background: #F1F1F1
+			background: $almostWhite
 		&:after
 			display: block
 			content: ''
@@ -142,14 +149,16 @@ $almostBlack: #2F2F2F
 			+s(cart)
 			left: 10px
 			top: 15px
+
 	&__log-in
 		text-decoration: none
 		font-size: 12px
 		padding: 0 15px 0 10px
 		height: $headerHeight
 		line-height: $headerHeight
+		color: $almostBlack
 		&:hover
-			background: #F1F1F1
+			background: $almostWhite
 			color: #0078D7
 
 .has-dropdown-down
@@ -158,6 +167,7 @@ $almostBlack: #2F2F2F
 		+s(arr-down)
 		display: inline-block
 		margin-left: 5px
+
 .has-dropdown-right
 	&:after
 		display: block
@@ -180,6 +190,7 @@ $almostBlack: #2F2F2F
 .dropbox
 	background: url("../img/dropbox-bg.jpg") right top no-repeat, #f7f7f7
 	min-width: $minWidth
+
 	&__inner
 		+inner
 		min-height: 700px
@@ -189,14 +200,17 @@ $almostBlack: #2F2F2F
 		color: #47525d
 		font-size: 47px
 		font-weight: 100
+
 	&__subtitle
 		@extend .dropbox__title
 		font-size: 21px
+
 	&__container
 		width: 450px
 
 	&__btn-wrap
 		margin-top: 50px
+
 	&__btn
 		padding: 19px 26px
 		display: inline-block
@@ -211,6 +225,7 @@ $almostBlack: #2F2F2F
 		font-size: 16px
 		display: block
 		color: #47525d
+
 	&__link
 		border-bottom: 1px solid #0071e0
 		text-decoration: none
@@ -218,9 +233,10 @@ $almostBlack: #2F2F2F
 		&:hover
 			color: #3398ea
 
-
 .invis
 	background: #323A45
+	min-width: $minWidth
+
 	&__inner
 		height: 533px
 		+inner
@@ -231,9 +247,11 @@ $almostBlack: #2F2F2F
 		font-size: 30px
 		text-align: center
 		font-weight: 300
+
 	&__form
 		margin-top: 40px
 		text-align: center
+
 	&__input-wrap
 		width: 280px
 		margin-right: 10px
@@ -241,6 +259,7 @@ $almostBlack: #2F2F2F
 		line-height: 63px
 		display: inline-block
 		position: relative
+
 	&__input
 		width: 100%
 		height: 100%
@@ -259,14 +278,17 @@ $almostBlack: #2F2F2F
 		left: 20px
 		z-index: 5
 		+s(user)
+
 	&__email:before
 		@extend .invis__name:before
 		+s(mail)
 		margin-top: -11px
+
 	&__pass:before
 		@extend .invis__name:before
 		+s(pass)
 		margin-top: -14px
+
 	&__submit
 		text-transform: uppercase
 		padding: 0 20px
@@ -277,7 +299,6 @@ $almostBlack: #2F2F2F
 		color: $white
 		font-weight: 700
 		cursor: pointer
-		transition: .2s
 		&:hover
 			background: #f42156
 
@@ -295,17 +316,17 @@ $almostBlack: #2F2F2F
 
 .oculus
 	+clr
+	min-width: $minWidth
+
 	&__item
-		width: calc(100%/3)
+		width: 33.33333333333%
 		text-decoration: none
 		padding: 0 15px
 		text-align: center
 		height: 300px
 		position: relative
 		z-index: 2
-		transition: 1s
 		overflow: hidden
-		display: block
 		+flex(center, center)
 		float: left
 		&:hover
@@ -327,6 +348,7 @@ $almostBlack: #2F2F2F
 		font-weight: 600
 		line-height: 28px
 		color: $white
+
 	&__img
 		width: 100%
 		z-index: -1
@@ -335,7 +357,6 @@ $almostBlack: #2F2F2F
 		left: 0
 		top: 0
 		transition: .3s
-
 		&_eve
 			background: url("../img/oculus1.jpg") center center no-repeat
 
@@ -353,6 +374,8 @@ $almostBlack: #2F2F2F
 
 .apple
 	background: #F2F2F2
+	min-width: $minWidth
+
 	&__inner
 		max-width: 980px
 		padding: 22px 10px 15px 10px
@@ -360,14 +383,17 @@ $almostBlack: #2F2F2F
 
 	&__links-wrap
 		+clr
+
 	&__col
 		width: 20%
 		float: left
+
 	&__title
 		font-size: 12px
 		line-height: 1.6
 		font-weight: 600
 		color: #333
+
 	&__list
 		margin-bottom: 20px
 		& li
@@ -388,13 +414,16 @@ $almostBlack: #2F2F2F
 			&:hover
 				color: #666
 				text-decoration: underline
+
 	&__subfooter
 		position: relative
 		+flex(flex-start,center)
 		border-top: 1px solid #e3e3e3
+
 	&__copy
 		@extend .apple__shop
 		margin-right: 20px
+
 	&__nav
 		font-size: 0
 		& li
@@ -404,12 +433,14 @@ $almostBlack: #2F2F2F
 			padding-right: 10px
 			&:last-of-type
 				border-right: none
+
 	&__nav-link
 		font-size: 12px
 		color: #333
 		text-decoration: none
 		&:hover
 			text-decoration: underline
+
 	&__lang
 		position: absolute
 		right: 0
