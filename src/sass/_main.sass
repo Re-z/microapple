@@ -318,6 +318,7 @@ a, button, input[type="submit"]
 	+clr
 	min-width: $minWidth
 
+
 	&__item
 		width: 33.33333333333%
 		text-decoration: none
@@ -329,6 +330,8 @@ a, button, input[type="submit"]
 		overflow: hidden
 		+flex(center, center)
 		float: left
+		&:last-of-type
+			left: -1px
 		&:hover
 			& .oculus__img
 				transform: scale(1.2)
